@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          token: ${{ secrets.MY_TOKEN }}
+          token: ${{ github.token }}
 
       - name: Setup Git
         run: |

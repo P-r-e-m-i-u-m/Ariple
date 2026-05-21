@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Move issue to In Progress or Done
         env:
-          GH_TOKEN: ${{ secrets.MY_TOKEN }}
+          GH_TOKEN: ${{ secrets.MY_TOKEN || github.token }}
           REPO: ${{ github.repository }}
         run: |
           PR_BODY="${{ github.event.pull_request.body }}"

@@ -19,11 +19,13 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          token: ${{ secrets.MY_TOKEN }}
+          token: ${{ github.token }}
 
       - name: Clone Wiki
+        env:
+          GH_TOKEN: ${{ secrets.MY_TOKEN || github.token }}
         run: |
-          git clone https://x-access-token:${{ secrets.MY_TOKEN }}@github.com/P-r-e-m-i-u-m/daily-activity.wiki.git wiki
+          git clone https://x-access-token:${GH_TOKEN}@github.com/P-r-e-m-i-u-m/daily-activity.wiki.git wiki
           git config --global user.email "amanbaba9404522@gmail.com"
           git config --global user.name "P-r-e-m-i-u-m"
 

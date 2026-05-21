@@ -9,9 +9,9 @@ jobs:
   auto-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
-          token: ${{ secrets.MY_TOKEN }}
+          token: ${{ github.token }}
 
       - name: Daily meaningful update
         run: |

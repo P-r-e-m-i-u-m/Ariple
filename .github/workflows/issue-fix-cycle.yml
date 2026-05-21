@@ -9,9 +9,9 @@ jobs:
   issue-fix-cycle:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
-          token: ${{ secrets.MY_TOKEN }}
+          token: ${{ github.token }}
 
       - name: Setup Git
         run: |
@@ -20,7 +20,7 @@ jobs:
 
       - name: Create and fix issue
         env:
-          GH_TOKEN: ${{ secrets.MY_TOKEN }}
+          GH_TOKEN: ${{ secrets.MY_TOKEN || github.token }}
         run: |
           DAY=$(( ($(date +%j) % 10) + 1 ))
           DATE=$(date +%Y-%m-%d)

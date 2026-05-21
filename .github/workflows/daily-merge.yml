@@ -24,10 +24,10 @@ jobs:
             echo "Daily Merge pause expired. Continuing workflow."
           fi
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         if: steps.merge_pause.outputs.paused != 'true'
         with:
-          token: ${{ secrets.MY_TOKEN }}
+          token: ${{ github.token }}
 
       - name: Setup Git
         if: steps.merge_pause.outputs.paused != 'true'
@@ -1850,7 +1850,7 @@ jobs:
       - name: Create and merge PR
         if: steps.merge_pause.outputs.paused != 'true'
         env:
-          GH_TOKEN: ${{ secrets.MY_TOKEN }}
+          GH_TOKEN: ${{ secrets.MY_TOKEN || github.token }}
         run: |
           DAY=$(( ($(date +%j) % 14) + 1 ))
           DATE=$(date +%Y-%m-%d)

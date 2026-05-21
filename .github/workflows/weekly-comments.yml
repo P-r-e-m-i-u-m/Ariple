@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Post weekly progress comments
         env:
-          GH_TOKEN: ${{ secrets.MY_TOKEN }}
+          GH_TOKEN: ${{ secrets.MY_TOKEN || github.token }}
           REPO: ${{ github.repository }}
         run: |
           WEEK=$(date +%V)
