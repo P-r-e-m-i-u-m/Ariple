@@ -36,6 +36,7 @@ flowchart LR
   Queue --> DLQ["Dead letter handling"]
   Actions["GitHub Actions"] --> Docs["Engineering docs"]
   Actions --> Releases["Weekly releases"]
+  Services --> GraphqlGW["GraphQL gateway"]
 ```
 
 ## Tech Stack
