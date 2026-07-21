@@ -51,6 +51,7 @@ flowchart LR
   Services --> Analytics["Analytics pipeline"]
   Services --> MLInference["ML inference"]
   Services --> SearchIndex["Search index"]
+  Queue --> BackupJob["Backup job"]
 ```
 
 ## Tech Stack
